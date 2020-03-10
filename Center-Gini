@@ -1,0 +1,37 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname=helvetica] ;
+edge [fontname=helvetica] ;
+0 [label=<Game Score &le; 15.9<br/>gini = 0.264<br/>samples = 96<br/>value = [81, 15]<br/>class = Not selected>, fillcolor="#ea985e"] ;
+1 [label=<Total Rebounds &le; 13.85<br/>gini = 0.073<br/>samples = 79<br/>value = [76, 3]<br/>class = Not selected>, fillcolor="#e68641"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label=<Defensive Rebounds &le; 8.45<br/>gini = 0.026<br/>samples = 76<br/>value = [75, 1]<br/>class = Not selected>, fillcolor="#e5833c"] ;
+1 -> 2 ;
+3 [label=<gini = 0.0<br/>samples = 69<br/>value = [69, 0]<br/>class = Not selected>, fillcolor="#e58139"] ;
+2 -> 3 ;
+4 [label=<Field Goals Made &le; 6.35<br/>gini = 0.245<br/>samples = 7<br/>value = [6, 1]<br/>class = Not selected>, fillcolor="#e9965a"] ;
+2 -> 4 ;
+5 [label=<gini = 0.0<br/>samples = 6<br/>value = [6, 0]<br/>class = Not selected>, fillcolor="#e58139"] ;
+4 -> 5 ;
+6 [label=<gini = 0.0<br/>samples = 1<br/>value = [0, 1]<br/>class = Selected>, fillcolor="#399de5"] ;
+4 -> 6 ;
+7 [label=<Defensive Rebounds &le; 10.4<br/>gini = 0.444<br/>samples = 3<br/>value = [1, 2]<br/>class = Selected>, fillcolor="#9ccef2"] ;
+1 -> 7 ;
+8 [label=<gini = 0.0<br/>samples = 2<br/>value = [0, 2]<br/>class = Selected>, fillcolor="#399de5"] ;
+7 -> 8 ;
+9 [label=<gini = 0.0<br/>samples = 1<br/>value = [1, 0]<br/>class = Not selected>, fillcolor="#e58139"] ;
+7 -> 9 ;
+10 [label=<Plus/Minus &le; -0.15<br/>gini = 0.415<br/>samples = 17<br/>value = [5, 12]<br/>class = Selected>, fillcolor="#8bc6f0"] ;
+0 -> 10 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+11 [label=<gini = 0.0<br/>samples = 3<br/>value = [3, 0]<br/>class = Not selected>, fillcolor="#e58139"] ;
+10 -> 11 ;
+12 [label=<Field Goal Percentage &le; 0.61<br/>gini = 0.245<br/>samples = 14<br/>value = [2, 12]<br/>class = Selected>, fillcolor="#5aade9"] ;
+10 -> 12 ;
+13 [label=<gini = 0.0<br/>samples = 11<br/>value = [0, 11]<br/>class = Selected>, fillcolor="#399de5"] ;
+12 -> 13 ;
+14 [label=<Defensive Rebounds &le; 10.0<br/>gini = 0.444<br/>samples = 3<br/>value = [2, 1]<br/>class = Not selected>, fillcolor="#f2c09c"] ;
+12 -> 14 ;
+15 [label=<gini = 0.0<br/>samples = 2<br/>value = [2, 0]<br/>class = Not selected>, fillcolor="#e58139"] ;
+14 -> 15 ;
+16 [label=<gini = 0.0<br/>samples = 1<br/>value = [0, 1]<br/>class = Selected>, fillcolor="#399de5"] ;
+14 -> 16 ;
+}

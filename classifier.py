@@ -1,3 +1,5 @@
+
+import sys
 import numpy as np
 import pandas as pd
 from sklearn.metrics import confusion_matrix 
@@ -11,12 +13,16 @@ def import_data(src):
     data = pd.read_csv(src)
     return data
 
+def get_position(path):
+    file_name = path.split('/')[-1]
+    return file_name.split('.')[0]
+
 def split_dataset(data):
     num_features = len(data.columns)
 
     # feature = independent variable
     feature = pd.DataFrame(data.values[:, 1: num_features - 1])
-    feature_names = ['Position', 'Field Goals Made', 'Field Goals Attempted', 'Field Goal Percentage', 'Three Pointers Made', 'Three Pointers Attempted', 'Three Point Percentage', 'Free Throws Made', 'Free Throws Attempted', 'Free Throw Percentage', 'Offensive Rebounds', 'Defensive Rebounds', 'Total Rebounds', 'Assists', 'Steals', 'Blocks', 'Turnovers', 'Personal Fouls', 'Points', 'Game Score', 'Plus/Minus']
+    feature_names = ['Games Played', 'Minutes Played', 'Field Goals Made', 'Field Goals Attempted', 'Field Goal Percentage', 'Three Pointers Made', 'Three Pointers Attempted', 'Three Point Percentage', 'Free Throws Made', 'Free Throws Attempted', 'Free Throw Percentage', 'Offensive Rebounds', 'Defensive Rebounds', 'Total Rebounds', 'Assists', 'Steals', 'Blocks', 'Turnovers', 'Personal Fouls', 'Points', 'Game Score', 'Plus/Minus']
 
     # target = dependent variable
     target = pd.DataFrame(data.values[:, [num_features - 1]])
@@ -31,7 +37,7 @@ def split_dataset(data):
 
 '''
 gini index: metric to measure how often a randomly chosen element would be incorrectly identified.
-an featureibute with lower gini index should be preferred
+any feature attribute with lower gini index should be preferred
 '''
 def train_gini(feature_train, target_train):
     '''
@@ -61,10 +67,10 @@ def train_entropy(feature_train, target_train):
 
     return clf_entropy
 
-def model(clf, feature_names, target_names):
+def model(clf, feature_names, target_names, model_name, model_type):
     data = tree.export_graphviz(clf, out_file = None, feature_names = feature_names, class_names = target_names, filled = True, rounded = True, special_characters = True)
     graph = graphviz.Source(data)
-    graph.render("NBA")
+    graph.render(model_name + '-' + model_type)
 
 def prediction(feature_test, clf_obj):
     target_pred = clf_obj.predict(feature_test)
@@ -79,28 +85,30 @@ def calc_accuracy(target_test, target_pred):
     target_names = ['Not selected', 'Selected']
     print(classification_report(target_test, target_pred, target_names = target_names))
 
-def main():
+def main(path):
     # Building Phase
-    data = import_data('./2019/2019.csv')
+    data = import_data(path)
     feature_names, target_names, feature_train, feature_test, target_train, target_test = split_dataset(data)
 
+    model_name = get_position(path)
+
     clf_gini = train_gini(feature_train, target_train)
-    model(clf_gini, feature_names, target_names)
+    model(clf_gini, feature_names, target_names, model_name=model_name, model_type = 'Gini')
 
     clf_entropy = train_entropy(feature_train, target_train)
-    # model(clf_entropy)
+    model(clf_entropy, feature_names, target_names, model_name=model_name, model_type = 'Entropy')
 
     # Operational Phase
 
     # Prediction using Gini
-    print("Results using Gini: ")
+    print('Results using Gini: ')
     target_pred_gini = prediction(feature_test, clf_gini)
     calc_accuracy(target_test, target_pred_gini)
 
     # Prediction using Entropy
-    print("Results using Entropy: ")
+    print('Results using Entropy: ')
     target_pred_entropy = prediction(feature_test, clf_entropy)
     calc_accuracy(target_test, target_pred_entropy)
 
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    main(sys.argv[1])

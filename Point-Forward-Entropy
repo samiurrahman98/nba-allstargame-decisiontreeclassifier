@@ -1,0 +1,21 @@
+digraph Tree {
+node [shape=box, style="filled, rounded", color="black", fontname=helvetica] ;
+edge [fontname=helvetica] ;
+0 [label=<Field Goal Percentage &le; 0.446<br/>entropy = 0.954<br/>samples = 24<br/>value = [9, 15]<br/>class = Selected>, fillcolor="#b0d8f5"] ;
+1 [label=<entropy = 0.0<br/>samples = 6<br/>value = [6, 0]<br/>class = Not selected>, fillcolor="#e58139"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label=<Games Played &le; 31.5<br/>entropy = 0.65<br/>samples = 18<br/>value = [3, 15]<br/>class = Selected>, fillcolor="#61b1ea"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+3 [label=<entropy = 0.0<br/>samples = 2<br/>value = [2, 0]<br/>class = Not selected>, fillcolor="#e58139"] ;
+2 -> 3 ;
+4 [label=<Blocks &le; 1.7<br/>entropy = 0.337<br/>samples = 16<br/>value = [1, 15]<br/>class = Selected>, fillcolor="#46a4e7"] ;
+2 -> 4 ;
+5 [label=<entropy = 0.0<br/>samples = 14<br/>value = [0, 14]<br/>class = Selected>, fillcolor="#399de5"] ;
+4 -> 5 ;
+6 [label=<Minutes Played &le; 34.85<br/>entropy = 1.0<br/>samples = 2<br/>value = [1, 1]<br/>class = Not selected>, fillcolor="#ffffff"] ;
+4 -> 6 ;
+7 [label=<entropy = 0.0<br/>samples = 1<br/>value = [0, 1]<br/>class = Selected>, fillcolor="#399de5"] ;
+6 -> 7 ;
+8 [label=<entropy = 0.0<br/>samples = 1<br/>value = [1, 0]<br/>class = Not selected>, fillcolor="#e58139"] ;
+6 -> 8 ;
+}
