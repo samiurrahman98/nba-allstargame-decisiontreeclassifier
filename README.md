@@ -7,6 +7,7 @@ The code base additionally consists of a web scraper to pull each players' respe
 At the end of the initial phase of development, we've produced the classification trees for players across four categories:
 
 | Guard | Forward | Point-Forward | Center |
+| ----- | ------- | ------------- | ------ |
 
 The NBA All Star team selections are made with respect to two major categories: Frontcourt and Backcourt. In the NBA, there are five player positions - Point Guard, Shooting Guard, Small Forward, Power Forward, and Center. Frontcourt refers to players from the Forward positions, as well as centers. Backcourt refers to players from the Guard positions.
 
