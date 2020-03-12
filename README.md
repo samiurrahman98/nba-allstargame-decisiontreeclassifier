@@ -5,7 +5,7 @@ The code base additionally consists of a web scraper to pull each players' respe
 
 ## Version 1.0
 
-# Statistics
+### Statistics
 
 Player stats currently do not include performing analyses of Advanced stats. We plan to expand the existing functionality of this application to include this feature in a future release.
 
