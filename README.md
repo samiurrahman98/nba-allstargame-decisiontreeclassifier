@@ -5,6 +5,12 @@ The code base additionally consists of a web scraper to pull each players' respe
 
 ## Version 1.0
 
+# Statistics
+
+Player stats currently do not include performing analyses of Advanced stats. We plan to expand the existing functionality of this application to include this feature in a future release.
+
+### Player Categories
+
 The NBA All Star team selections are made with respect to two major categories:
 
 | Frontcourt | Backcourt |
