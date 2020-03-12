@@ -1,7 +1,7 @@
 # NBA All Star Team Selection Classifier
 This application leverages a Decision Tree Classifier fed with the data of the Top-100 NBA players from the 2015-2016 NBA regular season, to the 2019-2020 NBA regular season. The set of player statistics drawn from this source of data is restricted to the dates starting from the beginning of the season up until the day that the player's respective All Star Team selection is made.
 
-The code base additionally consists of a web scraper to pull each players' respective stats from the BasketballReference website.
+The code base additionally consists of a web scraper to pull each players' respective stats from [BasketballReference](https://www.basketball-reference.com/).
 
 ## Version 1.0
 
